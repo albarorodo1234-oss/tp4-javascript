@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - TP5</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <h1>🛒 Catálogo de Productos</h1>
+
+  <!-- Sección de filtros -->
+  <div class="filtros">
+
+    <!-- Filtro por nombre -->
+    <input 
+      type="text" 
+      id="inputBusqueda" 
+      placeholder="Buscar por nombre..."
+    >
+
+    <!-- Filtro por categoría -->
+    <select id="selectCategoria">
+      <option value="todas">Todas las categorías</option>
+      <option value="electronica">Electrónica</option>
+      <option value="ropa">Ropa</option>
+      <option value="hogar">Hogar</option>
+    </select>
+
+    <!-- Filtro por precio -->
+    <div class="filtro-precio">
+      <label>Precio máximo: $<span id="valorPrecio">1000</span></label>
+      <input type="range" id="rangePrecio" min="0" max="1000" value="1000">
+    </div>
+
+    <!-- Filtro por stock -->
+    <label class="filtro-stock">
+      <input type="checkbox" id="checkStock">
+      Solo en stock
+    </label>
+
+  </div>
+
+  <!-- Aquí se muestran las tarjetas -->
+  <div id="contenedorProductos"></div>
+
+  <script src="js/productos.js"></script>
+</body>
+</html>
