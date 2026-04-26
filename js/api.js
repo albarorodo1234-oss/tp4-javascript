@@ -94,6 +94,6 @@ const buscarPersonaje = () => {
 };
 
 
-// --- Eventos ---
+// ---- Eventos ----
 btnCargar.addEventListener("click", cargarPersonajes);
 inputBusqueda.addEventListener("input", buscarPersonaje);

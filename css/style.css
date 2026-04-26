@@ -1,0 +1,275 @@
+/* =============================================
+   TP5 - Estilos generales
+   Prácticas Profesionalizantes II 
+   ============================================= */
+
+/* (a) Variables CSS con paleta de colores */
+:root {
+  --color-primario:   #2c3e50;
+  --color-secundario: #3498db;
+  --color-fondo:      #f4f6f8;
+  --color-tarjeta:    #ffffff;
+  --color-error:      #e74c3c;
+  --color-exito:      #2ecc71;
+  --color-texto:      #333333;
+  --sombra:           0 2px 8px rgba(0, 0, 0, 0.15);
+  --radio:            8px;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  padding: 20px;
+}
+
+h1 {
+  color: var(--color-primario);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* =============================================
+   Botones
+   ============================================= */
+button {
+  background-color: var(--color-secundario);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radio);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-primario);
+}
+
+
+/* =============================================
+   Inputs y selects
+   ============================================= */
+input[type="text"],
+select {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: var(--radio);
+  font-size: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+/* (e) Focus visible en inputs */
+input[type="text"]:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-secundario);
+}
+
+input[type="range"] {
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+}
+
+
+/* =============================================
+   Sección de filtros (productos.html)
+   ============================================= */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: var(--color-tarjeta);
+  padding: 15px;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.filtro-precio {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filtro-stock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+
+/* =============================================
+   (b) Layout responsive con Grid
+   ============================================= */
+#contenedorProductos,
+#contenedorUsuarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+
+/* =============================================
+   (c) Tarjetas con sombra, border-radius y hover
+   ============================================= */
+.tarjeta {
+  background-color: var(--color-tarjeta);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tarjeta img {
+  width: 100%;
+  border-radius: var(--radio);
+  margin-bottom: 10px;
+}
+
+.tarjeta h3 {
+  color: var(--color-primario);
+  margin-bottom: 8px;
+}
+
+.tarjeta .precio {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--color-secundario);
+}
+
+.tarjeta .categoria {
+  font-size: 13px;
+  color: #888;
+  text-transform: capitalize;
+}
+
+
+/* =============================================
+   (d) Estados visuales: loading, error, vacío
+   ============================================= */
+
+/* Loading: texto pulsante */
+p:has(+ #contenedorUsuarios),
+#contenedorUsuarios p,
+#contenedorProductos p {
+  text-align: center;
+  font-size: 16px;
+  color: #888;
+  animation: pulso 1.2s infinite;
+}
+
+@keyframes pulso {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Error */
+.error {
+  background-color: #fdecea;
+  border: 2px solid var(--color-error);
+  color: var(--color-error);
+  padding: 15px;
+  border-radius: var(--radio);
+  text-align: center;
+  font-weight: bold;
+}
+
+
+/* =============================================
+   To-Do App (todo.html)
+   ============================================= */
+.formulario-todo {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+#contador {
+  font-weight: bold;
+  color: var(--color-primario);
+  margin-bottom: 10px;
+}
+
+#listaTareas {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+}
+
+#listaTareas li {
+  background-color: var(--color-tarjeta);
+  padding: 12px 15px;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#listaTareas li:hover {
+  background-color: #eaf4fb;
+}
+
+/* Tarea completada: tachado */
+#listaTareas li.completada {
+  text-decoration: line-through;
+  color: #aaa;
+  background-color: #f0f0f0;
+}
+
+#listaTareas li button {
+  background-color: var(--color-error);
+  padding: 5px 10px;
+  font-size: 13px;
+}
+
+#listaTareas li button:hover {
+  background-color: #c0392b;
+}
+
+
+/* =============================================
+   Responsive: pantallas chicas
+   ============================================= */
+@media (max-width: 600px) {
+  #contenedorProductos,
+  #contenedorUsuarios {
+    grid-template-columns: 1fr;
+  }
+
+  .filtros {
+    flex-direction: column;
+  }
+
+  .formulario-todo {
+    flex-direction: column;
+  }
+}
