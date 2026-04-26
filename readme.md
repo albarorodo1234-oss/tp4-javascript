@@ -50,3 +50,5 @@ Consume la API pública de Rick and Morty. Muestra personajes como tarjetas con 
 ## Instrucciones de uso
 
 1. Clonar el repositorio:
+
+https://github.com/albarorodo1234-oss/tp4-javascript.git 
