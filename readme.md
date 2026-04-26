@@ -1,4 +1,4 @@
-# TP5 — JavaScript ES6+: DOM, Eventos y APIs
+# TP4 — JavaScript ES6+: DOM, Eventos y APIs
 
 **Materia:** Prácticas Profesionalizantes II — Programador Junior  
 **Alumno:** Albaro Rodó 
